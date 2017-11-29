@@ -62,6 +62,7 @@ $(document).ready(function () {
   var x=document.getElementById("demo");  //查找元素
   x.value="123";
   console.log("123");
+  console.log(x.value);
   var ctx = document.getElementById("myChart").getContext("2d");
   var optionsNoAnimation = { animation: false }
   var myLineChart = new Chart(ctx, {
