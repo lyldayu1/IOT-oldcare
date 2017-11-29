@@ -60,10 +60,7 @@ $(document).ready(function () {
   //Get the context of the canvas element we want to select
   //console.log("234");
   var x=document.getElementById("demo");  //查找元素
-  console.log(x.id);
-  x.id="123";
-  console.log("123");
-  console.log(x.id);
+  x.innerHTML = "123";
   var ctx = document.getElementById("myChart").getContext("2d");
   var optionsNoAnimation = { animation: false }
   var myLineChart = new Chart(ctx, {
