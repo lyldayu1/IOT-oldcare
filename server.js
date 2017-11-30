@@ -41,7 +41,7 @@ iotHubReader.startReadMessage(function (obj, date) {
   }
 });
 
-//sqljudge.judgetable();
+sqljudge.judgetable();
 
 var port = normalizePort(process.env.PORT || '3000');
 server.listen(port, function listening() {
