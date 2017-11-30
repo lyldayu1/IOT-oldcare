@@ -4,7 +4,7 @@ const WebSocket = require('ws');
 const moment = require('moment');
 const path = require('path');
 const iotHubClient = require('./IoTHub/iot-hub.js');
-const sqljudge = require('./public/javascripts/SQL.js')
+//const sqljudge = require('./public/javascripts/SQL.js')
 const app = express();
 
 app.use(express.static(path.join(__dirname, 'public')));
