@@ -4,7 +4,7 @@ const WebSocket = require('ws');
 const moment = require('moment');
 const path = require('path');
 const iotHubClient = require('./IoTHub/iot-hub.js');
-
+const sqljudge = require('./public/javascript/SQL.js')
 const app = express();
 
 app.use(express.static(path.join(__dirname, 'public')));
@@ -40,6 +40,8 @@ iotHubReader.startReadMessage(function (obj, date) {
     console.error(err);
   }
 });
+
+sqljudge.judgetable();
 
 var port = normalizePort(process.env.PORT || '3000');
 server.listen(port, function listening() {
