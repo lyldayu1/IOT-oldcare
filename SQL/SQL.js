@@ -24,4 +24,5 @@ var azure = require('azure-storage');
 //     // result contains the ETag for the new entity
 //   	}
 // 	});
+console.log('12344444');
  };
