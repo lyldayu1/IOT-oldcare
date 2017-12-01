@@ -1,6 +1,6 @@
 'use strict';
 var azure = require('azure-storage');
-
+exports.area=(x,y) =>(x+y);
 // module.exports = function() {
 //     var tableService = azure.createTableService('oldcaresql','wU1dcVI5ESAcgL490pj/G+JXwIGNqAZl0ulfGIeBeq/X/rz+ZkCazIytA/D8IrsLkbNj9tVDjqNL/slT4KJO5Q==');
 // 	console.log("faileee");
