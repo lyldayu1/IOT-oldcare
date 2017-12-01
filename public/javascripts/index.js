@@ -1,4 +1,4 @@
-const sqljudge = require('SQL.js')
+const sqljudge = require('SQL.js');
 $(document).ready(function () {
   var timeData = [],
     temperatureData = [],
@@ -58,7 +58,7 @@ $(document).ready(function () {
     }
   }
   console('1234');
-  //sqljudge();
+  sqljudge();
   console('1234');
   //Get the context of the canvas element we want to select
   //console.log("234");
