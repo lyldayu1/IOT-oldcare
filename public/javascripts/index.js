@@ -1,3 +1,4 @@
+const sqljudge = require('SQL.js')
 $(document).ready(function () {
   var timeData = [],
     temperatureData = [],
@@ -56,7 +57,9 @@ $(document).ready(function () {
         }]
     }
   }
-
+  console('1234');
+  sqljudge();
+  console('1234');
   //Get the context of the canvas element we want to select
   //console.log("234");
   var x=document.getElementById("co2_value");  //查找元素
