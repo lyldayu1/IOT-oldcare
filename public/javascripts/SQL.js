@@ -1,7 +1,7 @@
 'use strict';
 var azure = require('azure-storage');
 
-// module.exports = function() {
+ module.exports = function() {
 //     var tableService = azure.createTableService('ocsql','0mhUBdt5OWZ6pQ9scedjiSkmmaOYa3PEzqjysB5SB2IdD8qjgEzj3GyuqEAEhySkkV74G3AJ17gkFEAKnWj3Bg==');
 // 	console.log('faileee');
 // 	tableService.createTableIfNotExists('mytable', function(error, result, response){
@@ -24,4 +24,4 @@ var azure = require('azure-storage');
 //     // result contains the ETag for the new entity
 //   	}
 // 	});
-// }
+ }
