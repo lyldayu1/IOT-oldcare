@@ -28,7 +28,6 @@ wss.broadcast = function broadcast(data) {
     }
   });
 };
-console.log("area:"+sqljudge.area(1,2));
 var iotHubReader = new iotHubClient(process.env['Azure.IoT.IoTHub.ConnectionString'], process.env['Azure.IoT.IoTHub.ConsumerGroup']);
 iotHubReader.startReadMessage(function (obj, date) {
   try {
@@ -40,9 +39,9 @@ iotHubReader.startReadMessage(function (obj, date) {
     console.error(err);
   }
 });
-console.log("123");
+console.log('123');
 sqljudge();
-console.log("123");
+console.log('123');
 var port = normalizePort(process.env.PORT || '3000');
 server.listen(port, function listening() {
   console.log('Listening on %d', server.address().port);
