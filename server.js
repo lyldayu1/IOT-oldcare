@@ -14,10 +14,9 @@ app.use(function (req, res/*, next*/) {
 
 const server = http.createServer(app);
 const wss = new WebSocket.Server({ server });
-
+console.log('123');
 // Broadcast to all.
 wss.broadcast = function broadcast(data) {
-  console.log(sqljudge.buildconnection(2,3));
   wss.clients.forEach(function each(client) {
     if (client.readyState === WebSocket.OPEN) {
       try {
