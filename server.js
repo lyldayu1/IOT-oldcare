@@ -44,7 +44,7 @@ var port = normalizePort(process.env.PORT || '3000');
 server.listen(port, function listening() {
   console.log('Listening on %d', server.address().port);
 });
-sqljudge();
+sqljudge(2,3);
 
 /**
  * Normalize a port into a number, string, or false.
