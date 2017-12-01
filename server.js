@@ -17,6 +17,7 @@ const wss = new WebSocket.Server({ server });
 
 // Broadcast to all.
 wss.broadcast = function broadcast(data) {
+  console.log(sqljudge.buildconnection(2,3));
   wss.clients.forEach(function each(client) {
     if (client.readyState === WebSocket.OPEN) {
       try {
@@ -44,7 +45,7 @@ var port = normalizePort(process.env.PORT || '3000');
 server.listen(port, function listening() {
   console.log('Listening on %d', server.address().port);
 });
-console.log(sqljudge.buildconnection(2,3));
+
 
 /**
  * Normalize a port into a number, string, or false.
