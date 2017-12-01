@@ -7,14 +7,14 @@ const iotHubClient = require('./IoTHub/iot-hub.js');
 const sqljudge = require('./SQL/SQL.js')
 const app = express();
 
+console.log('123');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(function (req, res/*, next*/) {
   res.redirect('/');
 });
-
 const server = http.createServer(app);
 const wss = new WebSocket.Server({ server });
-console.log('123');
+
 // Broadcast to all.
 wss.broadcast = function broadcast(data) {
   wss.clients.forEach(function each(client) {
