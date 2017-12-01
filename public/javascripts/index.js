@@ -1,4 +1,4 @@
-//const sqljudge = require('SQL.js');
+const sqljudge = require('SQL.js');
 $(document).ready(function () {
   var timeData = [],
     temperatureData = [],

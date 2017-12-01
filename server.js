@@ -45,7 +45,6 @@ server.listen(port, function listening() {
   console.log('Listening on %d', server.address().port);
 });
 
-console.log('12345');
 /**
  * Normalize a port into a number, string, or false.
  */
