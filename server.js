@@ -6,8 +6,8 @@ const path = require('path');
 const iotHubClient = require('./IoTHub/iot-hub.js');
 const sqljudge = require('./SQL/SQL.js')
 const app = express();
+var azure = require('azure-storage');
 
-console.log('123');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(function (req, res/*, next*/) {
   res.redirect('/');
