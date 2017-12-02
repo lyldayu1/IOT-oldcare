@@ -4,9 +4,29 @@ const WebSocket = require('ws');
 const moment = require('moment');
 const path = require('path');
 const iotHubClient = require('./IoTHub/iot-hub.js');
-const sqljudge = require('./SQL/SQL.js')
 const app = express();
 var azure = require('azure-storage');
+
+
+var tableService = azure.createTableService('ocsql','DefaultEndpointsProtocol=https;AccountName=ocsql;AccountKey=0mhUBdt5OWZ6pQ9scedjiSkmmaOYa3PEzqjysB5SB2IdD8qjgEzj3GyuqEAEhySkkV74G3AJ17gkFEAKnWj3Bg==;EndpointSuffix=core.windows.net');
+tableService.createTableIfNotExists('mytable', function(error, result, response){
+    if(!error){
+        console.log('111');
+    }
+});
+var entGen = azure.TableUtilities.entityGenerator;
+var task = {
+  PartitionKey: entGen.String('hometasks'),
+  RowKey: entGen.String('1'),
+  description: entGen.String('take out the trash'),
+  dueDate: entGen.DateTime(new Date(Date.UTC(2015, 6, 20))),
+};
+tableSvc.insertEntity('mytable',task, function (error, result, response) {
+  if(!error){
+    // Entity inserted
+  }
+});
+
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(function (req, res/*, next*/) {
