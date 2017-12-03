@@ -8,7 +8,7 @@ const app = express();
 var azure = require('azure-storage');
 
 
-var tableService = azure.createTableService('DefaultEndpointsProtocol=https;AccountName=ocsql;AccountKey=0mhUBdt5OWZ6pQ9scedjiSkmmaOYa3PEzqjysB5SB2IdD8qjgEzj3GyuqEAEhySkkV74G3AJ17gkFEAKnWj3Bg==;EndpointSuffix=core.windows.net');
+var tableService = azure.createTableService('ocsql','DefaultEndpointsProtocol=https;AccountName=ocsql;AccountKey=0mhUBdt5OWZ6pQ9scedjiSkmmaOYa3PEzqjysB5SB2IdD8qjgEzj3GyuqEAEhySkkV74G3AJ17gkFEAKnWj3Bg==;EndpointSuffix=core.windows.net');
 tableService.createTableIfNotExists('mytable', function(error, result, response){
     if(!error){
 
