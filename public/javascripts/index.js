@@ -64,6 +64,7 @@ $(document).ready(function () {
   //console.log("234");
   var x=document.getElementById("co2_value");  //查找元素
   x.innerHTML = "123";
+  
   var ctx = document.getElementById("myChart").getContext("2d");
   var optionsNoAnimation = { animation: false }
   var myLineChart = new Chart(ctx, {
@@ -80,11 +81,15 @@ $(document).ready(function () {
     console.log('receive message' + message.data);
     try {
       var obj = JSON.parse(message.data);
-      if(!obj.time || !obj.temperature) {
+      if(!obj.time || !obj.TVOC) {
         return;
       }
       timeData.push(obj.time);
-      temperatureData.push(obj.temperature);
+      temperatureData.push(obj.TVOC);
+      var y=document.getElementById("co2_value");  //查找元素
+        y.innerHTML = obj.TVOC;
+      var z=document.getElementById("voc_value");  //查找元素
+        z.innerHTML = obj.eCO2;
       // only keep no more than 50 points in the line chart
       const maxLen = 50;
       var len = timeData.length;
@@ -93,8 +98,8 @@ $(document).ready(function () {
         temperatureData.shift();
       }
 
-      if (obj.humidity) {
-        humidityData.push(obj.humidity);
+      if (obj.eCO2) {
+        humidityData.push(obj.eCO2);
       }
       if (humidityData.length > maxLen) {
         humidityData.shift();
