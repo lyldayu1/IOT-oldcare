@@ -90,6 +90,8 @@ $(document).ready(function () {
         y.innerHTML = obj.TVOC;
       var z=document.getElementById("voc_value");  //查找元素
         z.innerHTML = obj.eCO2;
+      var q=document.getElementById("fall_value");  //查找元素
+        q.innerHTML = obj.isFall;
       // only keep no more than 50 points in the line chart
       const maxLen = 50;
       var len = timeData.length;
