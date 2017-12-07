@@ -87,9 +87,9 @@ $(document).ready(function () {
       timeData.push(obj.time);
       temperatureData.push(obj.TVOC);
       var y=document.getElementById("co2_value");  //查找元素
-        y.innerHTML = obj.TVOC;
+        y.innerHTML = obj.eCO2;
       var z=document.getElementById("voc_value");  //查找元素
-        z.innerHTML = obj.eCO2;
+        z.innerHTML = obj.TVOC;
       var q=document.getElementById("fall_value");  //查找元素
         q.innerHTML = obj.isFall;
       // only keep no more than 50 points in the line chart
