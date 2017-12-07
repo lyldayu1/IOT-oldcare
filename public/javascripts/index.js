@@ -78,7 +78,7 @@ $(document).ready(function () {
         return;
       }
       timeData.push(obj.time);
-      temperatureData.push(obj.TVOC);
+      CO2Data.push(obj.eCO2);
       var y=document.getElementById("co2_value");  //查找元素
         y.innerHTML = obj.eCO2;
       var z=document.getElementById("voc_value");  //查找元素
@@ -93,8 +93,8 @@ $(document).ready(function () {
         CO2Data.shift();
       }
 
-      if (obj.eCO2) {
-        CO2Data.push(obj.eCO2);
+      if (obj.TVOC) {
+        VOCData.push(obj.TVOC);
       }
       if (VOCData.length > maxLen) {
         VOCData.shift();
