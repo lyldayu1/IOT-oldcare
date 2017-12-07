@@ -61,13 +61,13 @@ var CO2count=0;
 var VOCcount=0;
 var CO2sum=0;
 var VOCsum=0;
-var CO2;
-var VOC;
-var CO2allsum;
-var VOCallsum;
+var CO2=0;
+var VOC=0;
+var CO2allsum=0;
+var VOCallsum=0;
 var ws = new WebSocket('wss://' + location.host);
   ws.onopen = function () {
-    console.log('Successfully connect WebSocket');
+    console.log('Successfully connect WebSocket1');
   }
   ws.onmessage = function (message) {
     console.log('receive message' + message.data);
