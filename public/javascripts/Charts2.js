@@ -80,10 +80,10 @@ var ws = new WebSocket('wss://' + location.host);
       VOC += obj.TVOC;
       CO2allsum++;
       VOCallsum++;
-      console.log(CO2);
-      console.log(VOC);
-      console.log(CO2allsum);
-      console.log(VOCallsum);
+      // console.log(CO2);
+      // console.log(VOC);
+      // console.log(CO2allsum);
+      // console.log(VOCallsum);
       var y=document.getElementById("CO2Average");  //查找元素
         y.innerHTML = CO2/CO2allsum;
       var z=document.getElementById("VOCAverage");  //查找元素
@@ -102,7 +102,7 @@ var ws = new WebSocket('wss://' + location.host);
       VOCData.pop();
       VOCData.push(VOCsum/VOCcount);
       }
-      if(CO2count>=13){
+      if(CO2count>=30){
         timeData.push(obj.time);
         CO2Data.push(obj.eCO2);
         VOCData.push(obj.TVOC);
