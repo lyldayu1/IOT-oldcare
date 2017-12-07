@@ -8,7 +8,7 @@ $(document).ready(function () {
   var timeData=[],
       CO2Data=[],
       VOCData=[];
-  var data: {
+  var data= {
     labels: timeData,
     datasets: [{
       label: "C02Average",
