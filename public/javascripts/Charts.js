@@ -5,18 +5,29 @@ Chart.defaults.global.defaultFontColor = '#292b2c';
 // -- Area Chart Example
 // -- Bar Chart Example
 $(document).ready(function () {
+  var timeData=[],
+      CO2Data=[],
+      VOCData=[];
+  var data: {
+    labels: timeData,
+    datasets: [{
+      label: "C02Average",
+      backgroundColor: "rgba(2,117,216,1)",
+      borderColor: "rgba(2,117,216,1)",
+      data: CO2Data,
+    },
+    {
+      label: "VOCAverage",
+      backgroundColor: "rgba(24, 120, 240, 0.4)",
+      borderColor: "rgba(24, 120, 240, 0.4)",
+      data: VOCData,
+    }],
+  }
+
 var ctx = document.getElementById("BarChart");
 var myLineChart = new Chart(ctx, {
   type: 'bar',
-  data: {
-    labels: ["January", "February", "March", "April", "May", "June"],
-    datasets: [{
-      label: "Revenue",
-      backgroundColor: "rgba(2,117,216,1)",
-      borderColor: "rgba(2,117,216,1)",
-      data: [4215, 5312, 6251, 7841, 9821, 14984],
-    }],
-  },
+  data: data,,
   options: {
     scales: {
       xAxes: [{
@@ -33,7 +44,7 @@ var myLineChart = new Chart(ctx, {
       yAxes: [{
         ticks: {
           min: 0,
-          max: 15000,
+          max: 1000,
           maxTicksLimit: 5
         },
         gridLines: {
@@ -46,4 +57,50 @@ var myLineChart = new Chart(ctx, {
     }
   }
 });
+var CO2count=0;
+var VOCcount=0;
+var CO2sum=0;
+var VOCsum=0;
+var ws = new WebSocket('wss://' + location.host);
+  ws.onopen = function () {
+    console.log('Successfully connect WebSocket');
+  }
+  ws.onmessage = function (message) {
+    console.log('receive message' + message.data);
+    try {
+      var obj = JSON.parse(message.data);
+      if(!obj.time || !obj.TVOC) {
+        return;
+      }
+      CO2count++;
+      CO2sum =CO2sum+obj.eCO2;
+      VOCcount++;
+      VOCsum= VOCsum +obj.TVOC;
+      if(CO2count==0){
+        timeData.push(obj.time);
+      CO2Data.push(obj.eCO2);
+      VOCData.push(obj.TVOC);
+      }else{
+      CO2Data.pop();
+      CO2Data.push(CO2sum/CO2count);
+      VOCData.pop();
+      VOCData.push(VOCsum/VOCcount);
+      }
+      if(CO2count>=13){
+        timeData.push(obj.time);
+        CO2Data.push(obj.eCO2);
+        VOCData.push(obj.TVOC);
+        CO2count=1;
+        VOCcount=1;
+        CO2sum=obj.eCO2;
+        VOCsum=obj.TVOC;
+      }
+      // only keep no more than 50 points in the line chart
+
+      myLineChart.update();
+    } catch (err) {
+      console.error(err);
+    }
+  }
 });
+
