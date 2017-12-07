@@ -80,6 +80,10 @@ var ws = new WebSocket('wss://' + location.host);
       VOC += obj.TVOC;
       CO2allsum++;
       VOCallsum++;
+      console(CO2);
+      console(VOC);
+      console(CO2allsum);
+      console(VOCallsum);
       var y=document.getElementById("C02Average");  //查找元素
         y.innerHTML = CO2/CO2allsum;
       var z=document.getElementById("VOCAverage");  //查找元素
