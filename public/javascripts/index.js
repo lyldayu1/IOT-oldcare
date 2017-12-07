@@ -85,6 +85,9 @@ $(document).ready(function () {
         z.innerHTML = obj.TVOC;
       var q=document.getElementById("fall_value");  //查找元素
         q.innerHTML = obj.isFall;
+      if(obg.isFall==true){
+        alert("Warning : he is falling!");
+      }
       // only keep no more than 50 points in the line chart
       const maxLen = 50;
       var len = timeData.length;
