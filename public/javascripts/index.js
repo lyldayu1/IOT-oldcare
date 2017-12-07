@@ -57,13 +57,6 @@ $(document).ready(function () {
         }]
     }
   }
-  console.log('1234');
-  //sqljudge();
-  console.log('1234');
-  //Get the context of the canvas element we want to select
-  //console.log("234");
-  var x=document.getElementById("co2_value");  //查找元素
-  x.innerHTML = "123";
   
   var ctx = document.getElementById("myChart").getContext("2d");
   var optionsNoAnimation = { animation: false }
