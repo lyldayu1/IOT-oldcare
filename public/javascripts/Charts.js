@@ -27,7 +27,7 @@ $(document).ready(function () {
 var ctx = document.getElementById("BarChart");
 var myLineChart = new Chart(ctx, {
   type: 'bar',
-  data: data,,
+  data: data,
   options: {
     scales: {
       xAxes: [{
