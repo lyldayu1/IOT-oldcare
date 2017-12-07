@@ -1,8 +1,8 @@
 
 $(document).ready(function () {
   var timeData = [],
-    temperatureData = [],
-    humidityData = [];
+    CO2Data = [],
+    VOCData = [];
   var data = {
     labels: timeData,
     datasets: [
@@ -15,7 +15,7 @@ $(document).ready(function () {
         backgroundColor: "rgba(255, 204, 0, 0.4)",
         pointHoverBackgroundColor: "rgba(255, 204, 0, 1)",
         pointHoverBorderColor: "rgba(255, 204, 0, 1)",
-        data: temperatureData
+        data: CO2Data
       },
       {
         fill: false,
@@ -26,7 +26,7 @@ $(document).ready(function () {
         backgroundColor: "rgba(24, 120, 240, 0.4)",
         pointHoverBackgroundColor: "rgba(24, 120, 240, 1)",
         pointHoverBorderColor: "rgba(24, 120, 240, 1)",
-        data: humidityData
+        data: VOCData
       }
     ]
   }
@@ -58,7 +58,7 @@ $(document).ready(function () {
     }
   }
   
-  var ctx = document.getElementById("myChart").getContext("2d");
+  var ctx = document.getElementById("myChart1").getContext("2d");
   var optionsNoAnimation = { animation: false }
   var myLineChart = new Chart(ctx, {
     type: 'line',
@@ -90,14 +90,14 @@ $(document).ready(function () {
       var len = timeData.length;
       if (len > maxLen) {
         timeData.shift();
-        temperatureData.shift();
+        CO2Data.shift();
       }
 
       if (obj.eCO2) {
-        humidityData.push(obj.eCO2);
+        CO2Data.push(obj.eCO2);
       }
-      if (humidityData.length > maxLen) {
-        humidityData.shift();
+      if (VOCData.length > maxLen) {
+        VOCData.shift();
       }
 
       myLineChart.update();
