@@ -9,7 +9,7 @@ $(document).ready(function () {
       {
         fill: false,
         label: 'CO2',
-        yAxisID: 'Temperature',
+        yAxisID: 'CO2',
         borderColor: "rgba(255, 204, 0, 1)",
         pointBoarderColor: "rgba(255, 204, 0, 1)",
         backgroundColor: "rgba(255, 204, 0, 0.4)",
@@ -20,7 +20,7 @@ $(document).ready(function () {
       {
         fill: false,
         label: 'VOC',
-        yAxisID: 'Humidity',
+        yAxisID: 'VOC',
         borderColor: "rgba(24, 120, 240, 1)",
         pointBoarderColor: "rgba(24, 120, 240, 1)",
         backgroundColor: "rgba(24, 120, 240, 0.4)",
