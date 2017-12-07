@@ -84,7 +84,7 @@ var ws = new WebSocket('wss://' + location.host);
       console.log(VOC);
       console.log(CO2allsum);
       console.log(VOCallsum);
-      var y=document.getElementById("C02Average");  //查找元素
+      var y=document.getElementById("CO2Average");  //查找元素
         y.innerHTML = CO2/CO2allsum;
       var z=document.getElementById("VOCAverage");  //查找元素
         z.innerHTML = VOC/VOCallsum;
