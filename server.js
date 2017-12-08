@@ -8,24 +8,24 @@ const app = express();
 var azure = require('azure-storage');
 
 
-var tableService = azure.createTableService('DefaultEndpointsProtocol=https;AccountName=244sql;AccountKey=8ehLawvy6X52RUkGQwKlUx9T1lKz/7M+iCqPHAekhmBYU+cAfNCtxq+J6Enrw0HojIcC0PbEipBJssA4W8IHAA==;EndpointSuffix=core.windows.net');
-tableService.createTableIfNotExists('sql244', function(error, result, response){
-    if(!error){
+// var tableService = azure.createTableService('DefaultEndpointsProtocol=https;AccountName=244sql;AccountKey=8ehLawvy6X52RUkGQwKlUx9T1lKz/7M+iCqPHAekhmBYU+cAfNCtxq+J6Enrw0HojIcC0PbEipBJssA4W8IHAA==;EndpointSuffix=core.windows.net');
+// tableService.createTableIfNotExists('sql244', function(error, result, response){
+//     if(!error){
 
-    }
-});
-var entGen = azure.TableUtilities.entityGenerator;
-var task = {
-  PartitionKey: entGen.String('hometasks'),
-  RowKey: entGen.String('1'),
-  description: entGen.String('take out the trash'),
-  dueDate: entGen.DateTime(new Date(Date.UTC(2015, 6, 20))),
-};
-tableSvc.insertEntity('sql244',task, function (error, result, response) {
-  if(!error){
-    // Entity inserted
-  }
-});
+//     }
+// });
+// var entGen = azure.TableUtilities.entityGenerator;
+// var task = {
+//   PartitionKey: entGen.String('hometasks'),
+//   RowKey: entGen.String('1'),
+//   description: entGen.String('take out the trash'),
+//   dueDate: entGen.DateTime(new Date(Date.UTC(2015, 6, 20))),
+// };
+// tableSvc.insertEntity('sql244',task, function (error, result, response) {
+//   if(!error){
+//     // Entity inserted
+//   }
+// });
 
 
 app.use(express.static(path.join(__dirname, 'public')));
