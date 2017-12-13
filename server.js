@@ -18,9 +18,7 @@ var config={
 };
 firebase.initializeApp(config);
 var database =firebase.database();
-firebase.database().ref().push({
-	username:"abd"
-})
+
 
 
 // var tableService = azure.createTableService('DefaultEndpointsProtocol=https;AccountName=244sql;AccountKey=8ehLawvy6X52RUkGQwKlUx9T1lKz/7M+iCqPHAekhmBYU+cAfNCtxq+J6Enrw0HojIcC0PbEipBJssA4W8IHAA==;EndpointSuffix=core.windows.net');
@@ -57,6 +55,9 @@ wss.broadcast = function broadcast(data) {
       try {
         console.log('sending data ' + data);
         client.send(data);
+        firebase.database().ref().push({
+			username:"abd"
+		});
       } catch (e) {
         console.error(e);
       }
