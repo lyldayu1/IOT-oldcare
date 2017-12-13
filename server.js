@@ -55,8 +55,9 @@ wss.broadcast = function broadcast(data) {
       try {
         console.log('sending data ' + data);
         client.send(data);
-        firebase.database().ref().push({
-			username:"abd"
+        firebase.database().ref().set({
+			username:"abd",
+			email:"lylda@ww.com",
 		});
       } catch (e) {
         console.error(e);
