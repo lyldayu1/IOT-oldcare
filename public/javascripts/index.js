@@ -87,10 +87,6 @@ $(document).ready(function () {
         q.innerHTML = obj.isFall;
       if(obj.isFall==true){
         alert("Warning : he is falling!");
-        var w=document.getElementById("main1");  //查找元素
-        w.backgroundColor = red;
-      }else{
-        d
       }
       // only keep no more than 50 points in the line chart
       const maxLen = 50;
