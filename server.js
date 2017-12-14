@@ -55,7 +55,14 @@ wss.broadcast = function broadcast(data) {
       try {
         console.log('sending data ' + data);
         client.send(data);
-        firebase.database().ref().push(data);
+
+        var obj = JSON.parse(data.data);
+        firebase.database().ref().push({
+        	time:obj.time,
+        	CO2:obj.eCO2,
+        	VOC:obj.TVOC,
+        	fall:obj.isFall
+        });
       } catch (e) {
         console.error(e);
       }
